@@ -1,3 +1,0 @@
-[console_scripts]
-can_simulator = can_simulator.can_simulator:main
-

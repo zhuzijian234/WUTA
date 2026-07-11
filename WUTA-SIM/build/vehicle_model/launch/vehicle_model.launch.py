@@ -1,1 +1,0 @@
-/home/starry1n/WUTA/WUTA-SIM/vehicle_model/src/vehicle_model/launch/vehicle_model.launch.py

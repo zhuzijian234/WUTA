@@ -1,4 +1,0 @@
-[console_scripts]
-lidar_simulator_demo = lidar_sim.lidar_simulator:main
-lidar_simulator_node = lidar_sim.lidar_sim_node:main
-

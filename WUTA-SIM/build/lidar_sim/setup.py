@@ -1,1 +1,0 @@
-/home/starry1n/WUTA/WUTA-SIM/perception_simulation/setup.py
