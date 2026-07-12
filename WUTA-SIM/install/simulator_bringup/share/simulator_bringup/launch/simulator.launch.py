@@ -1,1 +1,1 @@
-/home/starry1n/WUTA/WUTA-SIM/build/simulator_bringup/launch/simulator.launch.py
+/home/ubuntu22/WUTA/WUTA-SIM/build/simulator_bringup/launch/simulator.launch.py

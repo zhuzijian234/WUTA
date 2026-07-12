@@ -83,6 +83,11 @@ if [[ "${SKIP_BUILD}" -eq 0 ]]; then
   if [[ "${CLEAN}" -eq 1 ]]; then
     (cd "${FSD_WS}" && ./build_ws.sh --clean)
     rm -rf "${SIM_WS}/build" "${SIM_WS}/install" "${SIM_WS}/log"
+    find "${SIM_WS}" -mindepth 2 -maxdepth 5 -type d \
+      \( -name "build" -o -name "install" -o -name "log" -o -name "__pycache__" \) \
+      -exec rm -rf {} + 2>/dev/null || true
+    find "${FSD_WS}" -mindepth 3 -maxdepth 6 -type d -name "__pycache__" \
+      -exec rm -rf {} + 2>/dev/null || true
   else
     (cd "${FSD_WS}" && ./build_ws.sh)
   fi
