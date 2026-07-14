@@ -135,13 +135,21 @@ ros2 topic list
 
 ### 编译时 OOM (Killed signal)
 
-确认 `.wslconfig` 已配置，或手动限制编译线程：
+`robot_localization` 是大型 C++ 模板库，编译时内存消耗极大，WSL 默认内存下可能触发 OOM Killer 导致编译失败。错误信息为 `c++: fatal error: Killed signal terminated program cc1plus`。
+
+`build_ws.sh` 已内置 `MAKEFLAGS="-j2"` 限制并行编译数量，通常可避免此问题。如果仍然 OOM：
+
+1. 增大 WSL 内存上限：编辑 `%USERPROFILE%\.wslconfig`，将 `memory` 提高到 `8GB`，然后 `wsl --shutdown` 重启
+2. 或手动单线程编译失败的包：
 
 ```bash
 cd ~/WUTA/WUTA-FSD/ros2_ws
 source /opt/ros/humble/setup.bash
+source install/setup.bash 2>/dev/null
 MAKEFLAGS="-j1" colcon build --packages-select robot_localization
 ```
+
+> **说明**：`-jN` 是 Make 的并行编译线程数。`-j2` 表示最多同时编译 2 个 `.cpp` 文件，降低峰值内存；`-j1` 最保守但最慢。
 
 ### RViz 无法弹出
 
