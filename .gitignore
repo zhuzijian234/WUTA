@@ -1,47 +1,53 @@
-# Ignore catkin generated folders
-devel/
-devel/*
-build/
-build/*
-WUTA-SIM/build
-WUTA-FSD/build
-logs/
-logs/*
-.vscode/
-.vscode/*
-.rosinstall
-.rosinstall.bak
-.DS_Store
-.catkin_workspace
-# Ignore all Rosbags
-**.bag
-# Ignore all images
-**.jpeg
+# Catkin / ROS 1
+**/devel/
+**/build/
+**.catkin_workspace
+**/.catkin_tools/
+**.rosinstall
+**.rosinstall.bak
 
-# Others
-.idea/
-.idea/*
-cmake-build-debug/
-cmake-build-debug/*
-cmake-build-release/
-cmake-build-release/*
-clion/
-clion-cmake/
-clion-cmake/*
+# ROS 2 / colcon
+**/install/
+**/log/
 
-# Catkin stuff
-.catkin_tools/*
-.catkin_tools/
+# Python
+**/__pycache__/
+**.pyc
+**.pyo
+**.pyd
+**/.pytest_cache/
+**/.mypy_cache/
 
+# IDE
+**/.vscode/
+**/.idea/
+**/cmake-build-debug/
+**/cmake-build-release/
+**/clion/
+**/clion-cmake/
+
+# Editor swap
 **.swp
+**.swo
+*~
 
-# binary files
-*.pyc
+# System
+**.DS_Store
 
-# Profiler files
-*.prof
-*.pdf
+# Temp / cache
+**/.cache/
+**.pid
+**.tmp
+**.temp
 
-# IPOPT
-Ipopt-3.12.7/*
+# ROS bags
+**.bag
+
+# Binary / media
+**.jpeg
+**.prof
+**.pdf
+
+# Third-party
+Ipopt-3.12.7/
 HRT-D/
