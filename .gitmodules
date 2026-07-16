@@ -1,6 +1,6 @@
 [submodule "WUTA-FSD"]
 	path = WUTA-FSD
-	url = https://github.com/GaoMingHa0/WUTA-FSD.git
+	url = https://github.com/zhuzijian234/WUTA-FSD.git
 	branch = 小登测试
 [submodule "WUTA-SIM/perception_simulation"]
 	path = WUTA-SIM/perception_simulation

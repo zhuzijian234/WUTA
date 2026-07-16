@@ -3,7 +3,7 @@
 from typing import Optional
 
 import rclpy
-from geometry_msgs.msg import PoseStamped, TransformStamped
+from geometry_msgs.msg import PoseStamped, TransformStamped, TwistStamped
 from nav_msgs.msg import Odometry
 from rclpy.node import Node
 from std_msgs.msg import Bool
@@ -41,6 +41,9 @@ class SimulationBridge(Node):
 
         self.pose_pub = self.create_publisher(
             PoseStamped, "/localization/pose", 10
+        )
+        self.vel_pub = self.create_publisher(
+            TwistStamped, "/localization/velocity", 10
         )
         self.localization_ready_pub = self.create_publisher(
             Bool, "/system/localization_ready", 10
@@ -92,6 +95,11 @@ class SimulationBridge(Node):
         pose.header.frame_id = self.map_frame
         pose.pose = msg.pose.pose
         self.pose_pub.publish(pose)
+
+        vel = TwistStamped()
+        vel.header = pose.header
+        vel.twist = msg.twist.twist
+        self.vel_pub.publish(vel)
 
         transform = TransformStamped()
         transform.header = pose.header
